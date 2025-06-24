@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>ToDo List</h1>
+  <div id="auth">
+    <h2>Register</h2>
+    <input id="reg-username" placeholder="Username">
+    <input id="reg-password" type="password" placeholder="Password">
+    <button id="register">Register</button>
+    <h2>Login</h2>
+    <input id="login-username" placeholder="Username">
+    <input id="login-password" type="password" placeholder="Password">
+    <button id="login">Login</button>
+    <p id="auth-msg"></p>
+  </div>
+  <div id="app" style="display:none;">
+    <h2>Create Task</h2>
+    <input id="title" placeholder="Title">
+    <input id="description" placeholder="Description">
+    <input id="dueDate" type="date">
+    <select id="priority">
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
+    <button id="add">Add</button>
+
+    <h2>Filters</h2>
+    <select id="filter-status">
+      <option value="">All Statuses</option>
+      <option value="pending">Pending</option>
+      <option value="completed">Completed</option>
+    </select>
+    <select id="filter-priority">
+      <option value="">All Priorities</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <select id="sort-by">
+      <option value="createdAt">Created</option>
+      <option value="dueDate">Due Date</option>
+      <option value="priority">Priority</option>
+    </select>
+    <select id="sort-order">
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+    <button id="refresh">Refresh</button>
+
+    <ul id="tasks"></ul>
+  </div>
+<script src="app.js"></script>
+</body>
+</html>
