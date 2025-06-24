@@ -1,0 +1,14 @@
+{
+  "name": "webtesting_todolist",
+  "version": "2.0.0",
+  "description": "To do list application testing oriented.",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "node server/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
