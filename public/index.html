@@ -5,61 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ToDo List</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-  <h1>ToDo List</h1>
-  <div id="auth">
-    <h2>Register</h2>
-    <input id="reg-username" placeholder="Username">
-    <input id="reg-password" type="password" placeholder="Password">
-    <button id="register">Register</button>
-    <h2>Login</h2>
-    <input id="login-username" placeholder="Username">
-    <input id="login-password" type="password" placeholder="Password">
-    <button id="login">Login</button>
-    <p id="auth-msg"></p>
-  </div>
-  <div id="app" style="display:none;">
-    <h2>Create Task</h2>
-    <input id="title" placeholder="Title">
-    <input id="description" placeholder="Description">
-    <input id="dueDate" type="date">
-    <select id="priority">
-      <option>Low</option>
-      <option>Medium</option>
-      <option>High</option>
-    </select>
-    <button id="add">Add</button>
+  <nav class="navbar navbar-dark navbar-custom">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">ToDo List</span>
+    </div>
+  </nav>
 
-    <h2>Filters</h2>
-    <select id="filter-status">
-      <option value="">All Statuses</option>
-      <option value="pending">Pending</option>
-      <option value="completed">Completed</option>
-    </select>
-    <select id="filter-priority">
-      <option value="">All Priorities</option>
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
-    </select>
-    <select id="sort-by">
-      <option value="createdAt">Created</option>
-      <option value="dueDate">Due Date</option>
-      <option value="priority">Priority</option>
-    </select>
-    <select id="sort-order">
-      <option value="asc">Ascending</option>
-      <option value="desc">Descending</option>
-    </select>
-    <button id="refresh">Refresh</button>
+  <div class="container py-4">
+    <div id="auth">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="card p-3 h-100">
+            <h2 class="h5">Register</h2>
+            <input id="reg-username" class="form-control mb-2" placeholder="Username">
+            <input id="reg-password" type="password" class="form-control mb-2" placeholder="Password">
+            <button id="register" class="btn btn-primary w-100">Register</button>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="card p-3 h-100">
+            <h2 class="h5">Login</h2>
+            <input id="login-username" class="form-control mb-2" placeholder="Username">
+            <input id="login-password" type="password" class="form-control mb-2" placeholder="Password">
+            <button id="login" class="btn btn-success w-100">Login</button>
+            <p id="auth-msg" class="text-danger mt-2"></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <ul id="tasks"></ul>
+    <div id="app" style="display:none;">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="card p-3 h-100">
+            <h2 class="h5">Create Task</h2>
+            <input id="title" class="form-control mb-2" placeholder="Title">
+            <input id="description" class="form-control mb-2" placeholder="Description">
+            <input id="dueDate" type="date" class="form-control mb-2">
+            <select id="priority" class="form-select mb-2">
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+            </select>
+            <button id="add" class="btn btn-primary w-100">Add</button>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="card p-3 h-100">
+            <h2 class="h5">Filters</h2>
+            <div class="row g-2">
+              <div class="col-sm-6">
+                <select id="filter-status" class="form-select">
+                  <option value="">All Statuses</option>
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <select id="filter-priority" class="form-select">
+                  <option value="">All Priorities</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <select id="sort-by" class="form-select">
+                  <option value="createdAt">Created</option>
+                  <option value="dueDate">Due Date</option>
+                  <option value="priority">Priority</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <select id="sort-order" class="form-select">
+                  <option value="asc">Ascending</option>
+                  <option value="desc">Descending</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <button id="refresh" class="btn btn-outline-secondary w-100">Refresh</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul id="tasks" class="list-group"></ul>
+    </div>
   </div>
-<script src="app.js"></script>
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

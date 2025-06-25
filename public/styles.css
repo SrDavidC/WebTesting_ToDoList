@@ -1,40 +1,30 @@
+
+:root {
+  --color-dark: #222831;
+  --color-gray: #393E46;
+  --color-accent: #FFD369;
+  --color-light: #EEEEEE;
+}
+
 body {
-  background: #EAEBD0;
   font-family: 'Inter', sans-serif;
-  color: #AF3E3E;
-  margin: 0;
-  padding: 20px;
+  background-color: var(--color-dark);
+  color: var(--color-light);
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
+.navbar-custom {
+  background-color: var(--color-gray);
 }
 
-button {
-  background: #CD5656;
-  color: #EAEBD0;
+.card,
+.list-group-item {
+  background-color: var(--color-gray);
+  color: var(--color-light);
   border: none;
-  padding: 6px 10px;
-  margin: 4px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s;
 }
 
-button:hover {
-  background: #AF3E3E;
-}
-
-button.secondary {
-  background: #DA6C6C;
-}
-
-input, select {
-  padding: 6px;
-  margin: 4px;
-  border: 1px solid #AF3E3E;
-  border-radius: 4px;
+.list-group-item {
+  border-color: var(--color-dark);
 }
 
 .task-list {
@@ -42,28 +32,66 @@ input, select {
   padding: 0;
 }
 
-.task {
-  background: #fff;
-  margin: 8px 0;
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #DA6C6C;
-  transition: background 0.3s;
-}
-
 .task.completed {
   opacity: 0.6;
   text-decoration: line-through;
 }
 
-.task .actions {
-  margin-top: 4px;
-}
-
-.msg {
-  color: #AF3E3E;
+.task-actions button + button {
+  margin-left: 4px;
 }
 
 .msg.error {
   color: #CD5656;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.btn-primary:hover {
+  background-color: #f7c848;
+  border-color: #f7c848;
+  color: var(--color-dark);
+}
+
+.btn-success {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.btn-success:hover {
+  background-color: #f7c848;
+  border-color: #f7c848;
+  color: var(--color-dark);
+}
+
+.btn-outline-secondary {
+  border-color: var(--color-accent);
+  color: var(--color-light);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.badge.bg-secondary {
+  background-color: var(--color-accent) !important;
+  color: var(--color-dark) !important;
+}
+
+.form-control,
+.form-select {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  border-color: var(--color-gray);
+}
+
+.form-control::placeholder {
+  color: var(--color-gray);
 }

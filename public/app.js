@@ -74,18 +74,49 @@ function loadTasks() {
       list.innerHTML = '';
       tasks.forEach(t => {
         const li = document.createElement('li');
-        li.textContent = `${t.title} (${t.status}) [${t.priority}]`;
+        li.className = 'list-group-item';
+        if (t.status === 'completed') li.classList.add('completed');
+
+        const row = document.createElement('div');
+        row.className = 'd-flex justify-content-between';
+
+        const info = document.createElement('div');
+        info.innerHTML = `<strong>${t.title}</strong> <span class="badge bg-secondary ms-2">${t.priority}</span>`;
+        if (t.description) {
+          const desc = document.createElement('div');
+          desc.className = 'text-muted small';
+          desc.textContent = t.description;
+          info.appendChild(desc);
+        }
+        if (t.dueDate) {
+          const due = document.createElement('div');
+          due.className = 'text-muted small';
+          due.textContent = t.dueDate;
+          info.appendChild(due);
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'task-actions';
+
         const done = document.createElement('button');
+        done.className = 'btn btn-sm ' + (t.status === 'completed' ? 'btn-secondary' : 'btn-success');
         done.textContent = t.status === 'completed' ? 'Mark Pending' : 'Mark Done';
         done.onclick = () => {
           request('PATCH', `/api/tasks/${t.id}/status`, { status: t.status === 'completed' ? 'pending' : 'completed' })
             .then(loadTasks);
         };
+
         const del = document.createElement('button');
+        del.className = 'btn btn-sm btn-danger ms-2';
         del.textContent = 'Delete';
         del.onclick = () => request('DELETE', `/api/tasks/${t.id}`).then(loadTasks);
-        li.appendChild(done);
-        li.appendChild(del);
+
+        actions.appendChild(done);
+        actions.appendChild(del);
+
+        row.appendChild(info);
+        row.appendChild(actions);
+        li.appendChild(row);
         list.appendChild(li);
       });
     });
