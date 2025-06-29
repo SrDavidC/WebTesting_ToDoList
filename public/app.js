@@ -10,7 +10,10 @@ function request(method, url, data) {
       'Authorization': token ? 'Bearer ' + token : ''
     },
     body: data ? JSON.stringify(data) : undefined
-  }).then(r => r.json());
+  }).then(r => {
+    if (r.status === 204) return null;
+    return r.json();
+  });
 }
 
 document.getElementById('register').onclick = () => {
